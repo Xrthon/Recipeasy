@@ -1,6 +1,10 @@
 import {StyleSheet} from 'react-native';
 
 export const hyperLinkStyles = StyleSheet.create({
+
+  box : {
+    alignSelf: 'center', 
+  }, 
   button: { 
     backgroundColor: '#fcba03',
     color: '#fff',

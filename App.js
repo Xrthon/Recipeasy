@@ -7,7 +7,6 @@ import { SignUpForm} from './screens/SignUpForm';
 import { RecipesForm} from './screens/RecipesForm';
 import { globalStyles } from './components/styles/global.styles';
 
-const Stack = createNativeStackNavigator();
 
 export default function App() {
   
@@ -17,7 +16,7 @@ export default function App() {
     <SafeAreaView style={globalStyles.mainContainer}>
       {/* <LoginForm/> */}
       {/* <SignUpForm/> */}
-      {/* <RecipesForm/> */}
+      <RecipesForm/>
 
     </SafeAreaView>
   </SafeAreaProvider>

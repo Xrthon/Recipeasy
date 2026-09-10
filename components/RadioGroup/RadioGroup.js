@@ -1,5 +1,6 @@
 import { View } from 'react-native';
 import RadioGroup from 'react-native-radio-buttons-group';
+import {radioGrpStyle} from './RadioGroup.styles.js'
 
 export function RecepiesRadioGroup(){
 
@@ -9,23 +10,26 @@ export function RecepiesRadioGroup(){
 
             id: '1', 
             label: 'Breakfast',
-            value: 'breakfast'
+            value: 'breakfast',
+            color:"#fff",
         },
         {
             id: '2',
             label: 'Lunch',
-            value: 'lunch'
+            value: 'lunch',
+            color:"#fff",
         },
         {
             id: '3',
             label: 'Dinner',
-            value: 'dinner'
+            value: 'dinner',
+            color:"#fff",
         },
     ];
 
     return (
-        <View>
-            <RadioGroup radioButtons={ options } layout='row'/>
+        <View style={radioGrpStyle.container}>
+            <RadioGroup radioButtons={ options } styles={radioGrpStyle.radio} labelStyle={radioGrpStyle.label} layout='row'/>
         </View>
    );
 

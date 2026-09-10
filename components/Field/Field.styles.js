@@ -6,9 +6,10 @@ export const fieldStyles = StyleSheet.create({
     borderColor: "lightgray",
     borderWidth: 2,
     lineHeight: 32,
+    padding:2,
   },
-  description:{
-    width: "85%", 
-    height: "65%"
+  textArea: {
+    minHeight: 550,
+    textAlignVertical: 'top', 
   }
 });

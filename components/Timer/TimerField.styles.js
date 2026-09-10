@@ -1,21 +1,29 @@
 import {StyleSheet} from 'react-native';
 
-
-
-
 export const timerStyles = StyleSheet.create({
-
-    container:{
-        backgroundColor: "#F1F1F1", 
-        display:'flex',
-        flexDirection:'row',
+    container: {
+        flexDirection: 'row',
         alignItems: "center", 
-        justifyContent: "center",
-        alignSelf:"center",
+        justifyContent: "space-between",
         padding: 10,
+        borderRadius: 8,
+        gap: 10,
     },
-    textstate: { 
-        fontSize: 10, 
-        color: "#202020"
+    label: { 
+        color:"#fff",
+    },
+    value: {
+        color:"#fff",
+        fontWeight: "600",
+    },
+    button: {
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: "#fff",
+        paddingVertical: 4,
+        paddingHorizontal: 8,
+    },
+    buttonText: {
+        color: "#fff",
     },
 });

@@ -6,7 +6,6 @@ import {globalStyles} from '../components/styles/global.styles.js';
 
 export function SignUpForm({navigation, route}){
 
-  //console.log(route.params)
   
   const requiredFields =[
     "Username",
@@ -14,10 +13,10 @@ export function SignUpForm({navigation, route}){
     "Comfirm Password",
   ]
   
-  const allFields = requiredFields.map( f=> <Field label={f} id={f.downcase}/>)
+  const allFields = requiredFields.map( f => <Field label={f}/>)
   
   return(
-    <View style={globalStyles.container}>
+    <View style={globalStyles.centerScreenContainer}>
       {
         allFields
       }

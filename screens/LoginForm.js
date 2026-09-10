@@ -7,25 +7,20 @@ import {useState} from 'react'
 
 export function LoginForm({navigation}){
 
-  function handleSignUp(){
-    navigation.navigate('SignUpForm')
-  }
-
-
   const requiredFields =[
     "Username",
     "Password",
   ]
   
-  const allFields = requiredFields.map( f=> <Field label={f} id={f.downcase}/>)
+  const allFields = requiredFields.map( f=> <Field label={f}/>)
   
   return(
-    <View style={globalStyles.container}>
+    <View style={globalStyles.centerScreenContainer}>
       {
         allFields
       }
-      <SubmitButton text="Login"   onPress= { handleLogin }/>
-      <HyperLink text="Sign up!"   onPress={ handleSignUp }/>
+      <SubmitButton text="Login"   onPress= { ()=>alert("Login") }/>
+      <HyperLink text="Sign up!"   onPress={ ()=>alert("Login") }/>
     </View>
   )
 }

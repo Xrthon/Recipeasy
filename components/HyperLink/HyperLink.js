@@ -1,13 +1,13 @@
 import {Text, Pressable, View} from 'react-native';
 import {hyperLinkStyles} from './HyperLink.styles.js'
 
-export function HyperLink({text,onPress}){
+export function HyperLink(props){
 
   return(
-    <View>
-      <Pressable onPress={onPress}>
-          <Text style={hyperLinkStyles.link} >{text}</Text>
+    <>
+      <Pressable onPress={props.onPress} style={hyperLinkStyles.box}>
+          <Text style={hyperLinkStyles.link} >{props.text}</Text>
         </Pressable>
-    </View>
+    </>
   )
 }

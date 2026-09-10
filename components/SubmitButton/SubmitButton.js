@@ -4,10 +4,10 @@ import {submitButtonStyles} from './SubmitButton.styles.js'
 export function SubmitButton(props){
 
   return(
-    <View>
-      <Pressable onPress={props.onPress}>
+    <>
+      <Pressable onPress={props.onPress} style={submitButtonStyles.box}>
           <Text style={submitButtonStyles.button} >{props.text}</Text>
         </Pressable>
-    </View>
+    </>
   )
 }
