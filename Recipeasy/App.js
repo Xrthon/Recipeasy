@@ -1,20 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { LoginForm} from './screens/LoginForm';
+import { SignUpForm} from './screens/SignUpForm';
+import { RecipesForm} from './screens/RecipesForm';
+import { globalStyles } from './components/styles/global.styles';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+  
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  <SafeAreaProvider>
+    <SafeAreaView style={globalStyles.mainContainer}>
+      {/* <LoginForm/> */}
+      {/* <SignUpForm/> */}
+      {/* <RecipesForm/> */}
+
+    </SafeAreaView>
+  </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
