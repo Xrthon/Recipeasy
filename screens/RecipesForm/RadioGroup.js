@@ -1,10 +1,8 @@
 import { View } from 'react-native';
 import RadioGroup from 'react-native-radio-buttons-group';
-import {radioGrpStyle} from './RadioGroup.styles.js'
+import {StyleSheet} from 'react-native';
 
-export function RecepiesRadioGroup(){
-
-    
+export function RecipiesRadioGroup(){
     const options = [
         {
 
@@ -32,5 +30,16 @@ export function RecepiesRadioGroup(){
             <RadioGroup radioButtons={ options } styles={radioGrpStyle.radio} labelStyle={radioGrpStyle.label} layout='row'/>
         </View>
    );
-
 }
+
+export const radioGrpStyle = StyleSheet.create({
+    container: {
+        alignItems: "center",
+    },
+    label:{
+        color:"#fff",
+    },
+    radio:{
+        alignItems: "center"
+    },
+});

@@ -1,15 +1,14 @@
 import {useState } from 'react';
 import { View,TouchableOpacity, Text } from 'react-native';
-import {timerStyles} from './TimerField.styles';
-
 import { TimerPickerModal } from "react-native-timer-picker";
-import { LinearGradient } from "expo-linear-gradient"; 
+import {StyleSheet} from 'react-native';
+
 
 export function TimerField () {
     const [showPicker, setShowPicker] = useState(false);
     const [alarmString, setAlarmString] = useState(null);
 
-// Forma du Timer HH:MM:SS
+// Forma du Timer HH:MM
     const formatTime = ({
         hours,
         minutes,
@@ -17,7 +16,7 @@ export function TimerField () {
         // Tableau des valeurs du timer
         const timeParts = [];
 
-        //Initialisation des HH:MM:SS 
+        //Initialisation des HH:MM
         if (hours !== undefined) {
             timeParts.push(`${hours.toString().padStart(1, "0")}h `);
         }
@@ -66,3 +65,31 @@ export function TimerField () {
         </View>
     )
 }
+
+export const timerStyles = StyleSheet.create({
+    container: {
+        flexDirection: 'row',
+        alignItems: "center", 
+        justifyContent: "space-between",
+        padding: 10,
+        borderRadius: 8,
+        gap: 10,
+    },
+    label: { 
+        color:"#fff",
+    },
+    value: {
+        color:"#fff",
+        fontWeight: "600",
+    },
+    button: {
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: "#fff",
+        paddingVertical: 4,
+        paddingHorizontal: 8,
+    },
+    buttonText: {
+        color: "#fff",
+    },
+});

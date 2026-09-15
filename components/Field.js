@@ -1,4 +1,15 @@
+import {TextInput,View} from 'react-native';
 import {StyleSheet} from 'react-native';
+
+export function Field(props){
+ 
+  return (
+    <>
+      <TextInput placeholder={props.label} placeholderTextColor={"#fff"} style={[fieldStyles.input,props.style]} multiline={props.multiline}/>
+    </>
+  )
+}
+ 
  
 export const fieldStyles = StyleSheet.create({
   input:{
@@ -10,6 +21,7 @@ export const fieldStyles = StyleSheet.create({
   },
   textArea: {
     minHeight: 550,
+    maxHeight: 550,
     textAlignVertical: 'top', 
   }
 });
