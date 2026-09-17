@@ -6,7 +6,6 @@ import {globalStyles} from '../components/styles/global.styles.js';
 
 export function SignUpForm({navigation, route}){
 
-  
   const requiredFields =[
     "Username",
     "Password",
@@ -20,7 +19,7 @@ export function SignUpForm({navigation, route}){
       {
         allFields
       }
-      <SubmitButton text="Create my account" onPress={() => alert('Request send')}/>
+      <SubmitButton text="Create my account" onPress={"allo"}/>
     </View>
   )
 }

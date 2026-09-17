@@ -5,22 +5,22 @@ import {Field} from '../components/Field.js';
 import {globalStyles} from '../components/styles/global.styles.js';
 import {useState} from 'react'
 
-export function LoginForm({navigation}){
+export function LoginForm({navigation,route}){
 
   const requiredFields =[
     "Username",
     "Password",
   ]
   
-  const allFields = requiredFields.map( f => <Field label={f}/> )
+  const allFields = requiredFields.map( f => <Field label={ f }/> )
   
   return(
     <View style={globalStyles.centerScreenContainer}>
       {
         allFields
       }
-      <SubmitButton text="Login" onPress= { ()=>alert("Login") }/>
-      <HyperLink text="Sign up!" onPress={ ()=>alert("Login") }/>
+      <SubmitButton text="Login" onPress= { console.log("je me rend ") } navigateTo={'RecipesView'}/>
+      <HyperLink text="Sign up!" onPress={ console.log("je me rend ") }  navigateTo={'SignUpForm'}/>
     </View>
   )
 }
