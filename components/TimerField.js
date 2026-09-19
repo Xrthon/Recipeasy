@@ -4,11 +4,10 @@ import { TimerPickerModal } from "react-native-timer-picker";
 import {StyleSheet} from 'react-native';
 
 
-export function TimerField () {
+export function TimerField (props) {
     const [showPicker, setShowPicker] = useState(false);
-    const [alarmString, setAlarmString] = useState(null);
 
-// Forma du Timer HH:MM
+    // Forma du Timer HH:MM
     const formatTime = ({
         hours,
         minutes,
@@ -30,12 +29,12 @@ export function TimerField () {
     return (
         <View style={timerStyles.container}>
             <Text style={timerStyles.label}>
-                {alarmString !== null ? "Duration:" : "No duration set"}
+                {props.duration !== null ? "Duration:" : "No duration set"}
             </Text>
 
-            {alarmString !== null && (
+            {props.duration  !== null && (
                 <Text style={timerStyles.value}>
-                    {alarmString}
+                    {formatTime(props.duration)}
                 </Text>
             )}
 
@@ -53,8 +52,10 @@ export function TimerField () {
                 closeOnOverlayPress
                 modalTitle="Set Duration"
                 onCancel={() => setShowPicker(false)}
-                onConfirm={(pickedDuration) => {
-                    setAlarmString(formatTime(pickedDuration));
+                onConfirm={(timePicked) => {
+                    props.setDuration({
+                        hours: timePicked.hours,
+                        minutes: timePicked.minutes})
                     setShowPicker(false);
                 }}
                 setIsVisible={setShowPicker}

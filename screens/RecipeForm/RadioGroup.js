@@ -1,11 +1,11 @@
-import { View } from 'react-native';
+import { View,StyleSheet} from 'react-native';
 import RadioGroup from 'react-native-radio-buttons-group';
-import {StyleSheet} from 'react-native';
+import {useState} from 'react';
 
-export function RecipiesRadioGroup(){
+export function RecipieRadioGroup(props){
+
     const options = [
         {
-
             id: '1', 
             label: 'Breakfast',
             value: 'breakfast',
@@ -27,7 +27,14 @@ export function RecipiesRadioGroup(){
 
     return (
         <View style={radioGrpStyle.container}>
-            <RadioGroup radioButtons={ options } styles={radioGrpStyle.radio} labelStyle={radioGrpStyle.label} layout='row'/>
+            <RadioGroup 
+                onPress={props.setSelectedId}
+                selectedId={props.selectedId}
+                radioButtons={ options } 
+                styles={ radioGrpStyle.radio } 
+                labelStyle={ radioGrpStyle.label } 
+                layout='row'
+            />
         </View>
    );
 }

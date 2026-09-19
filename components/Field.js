@@ -5,7 +5,14 @@ export function Field(props){
  
   return (
     <>
-      <TextInput placeholder={props.label} placeholderTextColor={"#fff"} style={[fieldStyles.input,props.style]} multiline={props.multiline}/>
+      <TextInput 
+        value={props.value} 
+        onChangeText={props.onChangeText}
+        placeholder={props.label} 
+        placeholderTextColor={"#fff"} 
+        style={[fieldStyles.input, props.style]} 
+        multiline={props.multiline}
+      />
     </>
   )
 }
@@ -19,9 +26,17 @@ export const fieldStyles = StyleSheet.create({
     lineHeight: 32,
     padding:2,
   },
+
+  form: {
+    width: '85%',
+    maxWidth: 400,
+    alignSelf: 'center',
+    gap: 16,
+  },
+  
   textArea: {
-    minHeight: 550,
-    maxHeight: 550,
+    flex: 1,
+    minHeight: 100,
     textAlignVertical: 'top', 
   }
 });

@@ -6,7 +6,7 @@ import { LoginForm} from './screens/LoginForm';
 import { SignUpForm} from './screens/SignUpForm';
 import { RecipesView} from './screens/RecipesView';
 
-import { RecipesForm} from './screens/RecipesForm/RecipesForm';
+import { RecipeForm} from './screens/RecipeForm/RecipeForm';
 import { globalStyles } from './components/styles/global.styles';
 
 const Stack = createNativeStackNavigator();
@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator style={globalStyles.mainContainer} initialRouteName="LoginForm">
+      <Stack.Navigator initialRouteName="LoginForm">
         <Stack.Screen
           name="LoginForm"
           component={ LoginForm }
@@ -26,8 +26,8 @@ export default function App() {
           component={ SignUpForm } 
         />
         <Stack.Screen 
-          name="RecipesForm" 
-          component={ RecipesForm } 
+          name="RecipeForm" 
+          component={ RecipeForm } 
         />
 
         <Stack.Screen 
