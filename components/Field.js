@@ -1,42 +1,40 @@
-import {TextInput,View} from 'react-native';
-import {StyleSheet} from 'react-native';
+import { TextInput, View } from "react-native";
+import { StyleSheet } from "react-native";
 
-export function Field(props){
- 
+export function Field(props) {
   return (
     <>
-      <TextInput 
-        value={props.value} 
+      <TextInput
+        value={props.value}
         onChangeText={props.onChangeText}
-        placeholder={props.label} 
-        placeholderTextColor={"#fff"} 
-        style={[fieldStyles.input, props.style]} 
+        placeholder={props.label}
+        placeholderTextColor={"#fff"}
+        style={[fieldStyles.input, props.style]}
         multiline={props.multiline}
       />
     </>
-  )
+  );
 }
- 
- 
+
 export const fieldStyles = StyleSheet.create({
-  input:{
-    color:"#fff",
+  input: {
+    color: "#fff",
     borderColor: "lightgray",
     borderWidth: 2,
     lineHeight: 32,
-    padding:2,
+    padding: 2,
   },
 
   form: {
-    width: '85%',
+    width: "85%",
     maxWidth: 400,
-    alignSelf: 'center',
+    alignSelf: "center",
     gap: 16,
   },
-  
+
   textArea: {
     flex: 1,
     minHeight: 100,
-    textAlignVertical: 'top', 
-  }
+    textAlignVertical: "top",
+  },
 });
