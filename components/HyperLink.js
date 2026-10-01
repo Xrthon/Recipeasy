@@ -6,7 +6,7 @@ export function HyperLink(props) {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    if (props.onPress) onPress();
+    if (props.onPress){ props.onPress();}
     if (props.navigateTo) {
       navigation.navigate(props.navigateTo);
     } else if (props.popToTop) {
@@ -17,7 +17,9 @@ export function HyperLink(props) {
   return (
     <>
       <Pressable onPress={handlePress} style={hyperLinkStyles.box}>
-        <Text style={hyperLinkStyles.link}>{props.text}</Text>
+        <Text style={[hyperLinkStyles.link, props?.textStyle]}>
+          {props.text}
+        </Text>
       </Pressable>
     </>
   );
@@ -35,5 +37,8 @@ export const hyperLinkStyles = StyleSheet.create({
   },
   link: {
     color: "blue",
+  },
+  logout: {
+    color: "red",
   },
 });

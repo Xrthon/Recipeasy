@@ -6,9 +6,8 @@ export function SubmitButton(props) {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    if (props.onBeforeNavigation && props.onBeforeNavigation() === false)
-      return;
-    if (props.onPress) onPress();
+    if (props.onBeforeNavigation && props.onBeforeNavigation() === false){return;}
+    if (props.onPress) {props.onPress();}
     if (props.popTo) {
       navigation.popTo(props.popTo, props.params);
     } else if (props.navigateTo) {
@@ -41,6 +40,9 @@ export const submitButtonStyles = StyleSheet.create({
       padding: 10,
       borderRadius: 8,
       textAlign: "center",
+    },
+    delete: {
+      backgroundColor: "red",
     },
   },
 
