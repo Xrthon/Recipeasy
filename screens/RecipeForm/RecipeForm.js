@@ -45,6 +45,7 @@ export function RecipeForm({ navigation, route }) {
 
     setError(newErrors);
 
+    //Changer le comportement ici pour qu'un useEffect verifie l'etat de mon state
     if (Object.keys(newErrors).length !== 0) {
       Alert.alert("Error", JSON.stringify(errors));
       return false;
