@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { HyperLink, hyperLinkStyles } from "../components/HyperLink.js";
 import { SubmitButton,submitButtonStyles } from "../components/SubmitButton.js";
 import { globalStyles } from "../components/styles/global.styles.js";
+import { RecipeItem } from "../components/RecipeItem.js"
+
 
 export function RecipesView({ navigation, route }) {
 
@@ -18,6 +20,7 @@ export function RecipesView({ navigation, route }) {
     const recipe = recipesList[Math.floor(Math.random() * recipesList.length)];
     setSelectedRecipe(recipe);
   };
+
 
   useEffect(() => {
     if (params) {
@@ -49,26 +52,19 @@ export function RecipesView({ navigation, route }) {
 
   return (
     <View style={globalStyles.container}>
-      <Text>{JSON.stringify(recipesList)}</Text>
-
-     
-      {recipesList.length > 0 && (
-        <SubmitButton
-          text="View"
-          //Retravailler l'execution de fonction sur le clique du bouton pour calculer les params 
-          onBeforeNavigation={randomRecipe}
-          // Enlever le mode edit pour constater qu'il a une recette ou pas de recette 
-          params={{ recipe: selectedRecipe, mode: "edit" }}
-          navigateTo={"RecipeForm"}
-        />
+      {
+      recipesList.length > 0 ? (
+        <>
+        { recipesList.map((recipe, index) =>(<RecipeItem  navigateTo={"RecipeForm"} key={index} value={recipe} />))}
+        </>
+      ) : (
+        <Text>No recipe yet...</Text>
       )}
 
       <SubmitButton
         text={"+"}
         style={submitButtonStyles.cornerRight.box}
         textStyle={submitButtonStyles.cornerRight.text}
-        // Enlever le mode add pour constater qu'il pas de recette donc mode add 
-        params={{ mode: "add" }}
         navigateTo={"RecipeForm"}
       />
     </View>

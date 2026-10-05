@@ -22,10 +22,8 @@ export function RecipeForm({ navigation, route }) {
     type: null,
   });
 
-  const [mode, setMode] = useState("add");
   const params = route.params;
   const recipe_params = params?.recipe;
-  const mode_params = params.mode;
   
   const recipeParams = () => recipe;
 
@@ -67,13 +65,11 @@ export function RecipeForm({ navigation, route }) {
         type: recipe_params.category,
       })
     }
-
-    if (mode_params){ setMode(mode_params); }
-
   }, [params]);
 
 
   return (
+
     <View style={globalStyles.container}>
       <RecipieRadioGroup
         selectedId={recipe.type}
@@ -100,17 +96,19 @@ export function RecipeForm({ navigation, route }) {
       />
 
       {
-      mode === "add" && 
+      recipe_params === undefined && 
       <SubmitButton
           text="Save"
+          // Retravailler l'exécution de fonction sur le clic du bouton pour calculer les params
           params={ recipeParams() }
           popTo="RecipesView"
           onBeforeNavigation={ handleSave }
         />
       }
+   
 
       {
-      mode === "edit" && 
+       recipe_params != undefined && 
         <SubmitButton
           text="Delete"
           textStyle={submitButtonStyles.default.delete}
