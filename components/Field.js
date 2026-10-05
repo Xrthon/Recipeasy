@@ -37,4 +37,8 @@ export const fieldStyles = StyleSheet.create({
     minHeight: 100,
     textAlignVertical: "top",
   },
+  error: {
+  color: "#ff6b6b",
+  fontSize: 12,
+},
 });

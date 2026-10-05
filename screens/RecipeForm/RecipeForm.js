@@ -15,40 +15,36 @@ export function RecipeForm({ navigation, route }) {
     type: null,
   });
 
-  const [errors, setError] = useState({
-    name: null,
-    description: null,
-    timer: null,
-    type: null,
-  });
-
   const params = route.params;
   const recipe_params = params?.recipe;
   
-  const recipeParams = () => recipe;
-
-  const handleSave = () => {
+ 
+  const validate = (recipe) => {
     const newErrors = {};
 
     if (recipe.name.trim() == "")
       newErrors.name = "La recette doit avoir un nom";
     if (recipe.timer == null) {
-      newErrors.timer = "La recette doit avoir une durée";
+       newErrors.timer = "La recette doit avoir une durée";
     } else if (recipe.timer.hours <= 0 && recipe.timer.minutes <= 0) {
       newErrors.timer = "La recette doit avoir une durée plus grande que 0";
     }
     if (recipe.type == null) {
-      newErrors.type = "Choisis un type de repas";
+       newErrors.type = "Choisis un type de repas";
     }
-
-    setError(newErrors);
-
-    //Changer le comportement ici pour qu'un useEffect verifie l'etat de mon state
-    if (Object.keys(newErrors).length !== 0) {
-      Alert.alert("Error", JSON.stringify(errors));
-      return false;
-    }
+    return newErrors;
   };
+  
+
+  const handleSave = () => {
+    const newErrors = validate(recipe);
+
+    if (Object.keys(newErrors).length > 0){
+      Alert.alert("Erreur", Object.values(newErrors).join("\n"));
+      return false 
+    } 
+  };
+
 
   useEffect(() => {
     if (recipe_params) {
@@ -99,8 +95,7 @@ export function RecipeForm({ navigation, route }) {
       recipe_params === undefined && 
       <SubmitButton
           text="Save"
-          // Retravailler l'exécution de fonction sur le clic du bouton pour calculer les params
-          params={ recipeParams() }
+          params={ recipe }
           popTo="RecipesView"
           onBeforeNavigation={ handleSave }
         />

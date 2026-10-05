@@ -4,7 +4,7 @@ import { HyperLink, hyperLinkStyles } from "../components/HyperLink.js";
 import { SubmitButton,submitButtonStyles } from "../components/SubmitButton.js";
 import { globalStyles } from "../components/styles/global.styles.js";
 import { RecipeItem } from "../components/RecipeItem.js"
-
+import { FlatList } from 'react-native';
 
 export function RecipesView({ navigation, route }) {
 
@@ -55,7 +55,13 @@ export function RecipesView({ navigation, route }) {
       {
       recipesList.length > 0 ? (
         <>
-        { recipesList.map((recipe, index) =>(<RecipeItem  navigateTo={"RecipeForm"} key={index} value={recipe} />))}
+        <FlatList
+          data={recipesList}
+          ItemSeparatorComponent={ () => <View style={{ height: 1, backgroundColor: 'white' }}/> }
+          renderItem={({ item, index }) => (
+            <RecipeItem navigateTo="RecipeForm"  value={item} />
+          )}
+        />
         </>
       ) : (
         <Text>No recipe yet...</Text>
