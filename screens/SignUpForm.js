@@ -19,7 +19,7 @@ export function SignUpForm({navigation, route}){
       {
         allFields
       }
-      <SubmitButton text="Create my account" navigateTo={"RecipesView"}/>
+      <SubmitButton text="Create my account" navigateTo={"Recipes"}/>
     </View>
   )
 }

@@ -6,7 +6,7 @@ import { TimerField } from "../../components/TimerField.js";
 import { globalStyles } from "../../components/styles/global.styles.js";
 import { SubmitButton, submitButtonStyles } from "../../components/SubmitButton.js";
 
-export function RecipeForm({ navigation, route }) {
+export function RecipeForm({ route }) {
 
   const [recipe, setRecipe] = useState({
     name: "",
@@ -96,18 +96,17 @@ export function RecipeForm({ navigation, route }) {
       <SubmitButton
           text="Save"
           params={ recipe }
-          popTo="RecipesView"
+          popTo="Recipes"
           onBeforeNavigation={ handleSave }
         />
       }
-   
 
       {
        recipe_params != undefined && 
         <SubmitButton
           text="Delete"
           textStyle={submitButtonStyles.default.delete}
-          popTo="RecipesView"
+          popTo="Recipes"
         />
       }
 

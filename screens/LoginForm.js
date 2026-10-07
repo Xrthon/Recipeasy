@@ -19,8 +19,8 @@ export function LoginForm({navigation,route}){
       {
         allFields
       }
-      <SubmitButton text="Login" navigateTo={'RecipesView'}/>
-      <HyperLink text="Sign up!" navigateTo={'SignUpForm'}/>
+      <SubmitButton text="Login" navigateTo={'Recipes'}/>
+      <HyperLink text="Sign up!" navigateTo={'Sign Up'}/>
     </View>
   )
 }

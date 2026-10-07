@@ -29,6 +29,7 @@ export function RecipeItem(props) {
 
   return (
     <TouchableOpacity
+      activeOpacity={0.2}
       style={styles.container}
       onPress={() => navigation.navigate(props.navigateTo,{ recipe: props.value})}
     >
@@ -38,8 +39,8 @@ export function RecipeItem(props) {
       </View>
 
       <View style={styles.right}>
-        <Text style={styles.title}>{props.value.name}</Text>
-        <Text style={styles.description}>{props.value.description}</Text>
+        <Text numberOfLines={1} style={styles.title}>{props.value.name}</Text>
+        <Text numberOfLines={1} style={styles.description}>{props.value.description}</Text>
       </View>
     </TouchableOpacity>
   );
