@@ -12,7 +12,7 @@ export function RecipeItem(props) {
         "dinner-dining",
     ]
 
-    const category_icon =() => {
+    const categoryIcon =() => {
         if(props.value.category == 1){
             return <MaterialIcons name={icon[0]} size={28} color="#fcba03" />
         }
@@ -34,7 +34,7 @@ export function RecipeItem(props) {
       onPress={() => navigation.navigate(props.navigateTo,{ recipe: props.value})}
     >
       <View style={styles.left}>
-        {category_icon()}
+        {categoryIcon()}
         <Text style={styles.time}>{timeFormat()}</Text>
       </View>
 

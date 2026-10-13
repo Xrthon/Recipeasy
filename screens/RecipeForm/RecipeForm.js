@@ -16,7 +16,7 @@ export function RecipeForm({ route }) {
   });
 
   const params = route.params;
-  const recipe_params = params?.recipe;
+  const recipeParams = params?.recipe;
   
  
   const validate = (recipe) => {
@@ -47,18 +47,18 @@ export function RecipeForm({ route }) {
 
 
   useEffect(() => {
-    if (recipe_params) {
+    if (recipeParams) {
       
       const duration = {
-        hours: recipe_params.durationHours,
-        minutes: recipe_params.durationMinutes,
+        hours: recipeParams.durationHours,
+        minutes: recipeParams.durationMinutes,
       };
 
       setRecipe({
-        name: recipe_params.name,
+        name: recipeParams.name,
         timer: duration,
-        description: recipe_params?.description,
-        type: recipe_params.category,
+        description: recipeParams?.description,
+        type: recipeParams.category,
       })
     }
   }, [params]);
@@ -92,7 +92,7 @@ export function RecipeForm({ route }) {
       />
 
       {
-      recipe_params === undefined && 
+      recipeParams === undefined && 
       <SubmitButton
           text="Save"
           params={ recipe }
@@ -102,7 +102,7 @@ export function RecipeForm({ route }) {
       }
 
       {
-       recipe_params != undefined && 
+       recipeParams != undefined && 
         <SubmitButton
           text="Delete"
           textStyle={submitButtonStyles.default.delete}
